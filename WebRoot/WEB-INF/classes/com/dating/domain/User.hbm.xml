@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.dating.domain">
+	<!-- 映射Video持久化类 -->
+	<class name="User" table="user">
+		
+		<id name="user_id" column="user_id">
+			<!-- 定义主键生成器策略 -->
+			<generator class="native"/>
+		</id>
+		<!-- 用于映射普通属性 -->
+		<property name="account" not-null="true"/>
+		<property name="password" not-null="true"/>
+		<property name="userName" not-null="true"/>
+		<property name="sex" />	
+		<property name="identificationID" />
+		<property name="trueName" />
+		<property name="birthday" type="timestamp" />
+		<property name="telephone" />
+		<property name="email" />
+		<property name="description" />
+		<property name="college" />
+		<property name="intendedTime" type="timestamp" />	
+		<property name="userPhotoPath" />
+		<!-- 映射集合属性，集合元素是其他持久化实体
+			指定连接表的表名-->	
+			
+		<set name="posts" inverse="true">
+				<key column="user_id"/>
+                <one-to-many class="PostInfo"/>
+         </set>
+	</class>
+</hibernate-mapping>

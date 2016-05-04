@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<!-- 配置为开发模式（配置了开发模式，不需要重新发布，立即生效） -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 把扩展名配置为action -->
+    <constant name="struts.action.extension" value="action"></constant>
+	<!-- 把主题配置为simple(设置为自己的主题，比如：表单不会自动的生成为表格的形式) -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 国际化文件 -->
+	<constant name="struts.custom.i18n.resources" value="mess"/>
+	<!-- 视频、音频和照片允许上传的大小 -->
+	<constant name="struts.multipart.maxSize" value="1000000000"/> 
+
+    
+    <package name="app" namespace="/app" extends="json-default">
+    	
+    	<!--  <action name="user_login" class="userAppAction" method="login">
+    	<result type="json">
+    		指定将被Struts2序列化的属性，该属性必须在Action中有对应的getter方法
+    		<param name="root">user</param>
+    	</result>
+    	</action> -->
+    	 <action name="user_login" class="com.dating.Appaction.UserAction" method="login">
+    	</action>
+    	
+    	 <action name="user_register" class="com.dating.Appaction.UserAction" method="register">
+    	</action>
+    	
+    	 <action name="user_getUserInfo" class="com.dating.Appaction.UserAction" method="getMemInfo">
+    	</action>
+    	
+    	
+    	<action name="likeRecord_isliked" class="com.dating.Appaction.LikeRecordAction" method="isliked">
+    	</action>
+    	
+    	<action name="postInfo_ListAll" class="com.dating.Appaction.PostInfoAction" method="ListAll">
+	    	<result type="json">
+	    		<!-- 指定将被Struts2序列化的属性，该属性必须在Action中有对应的getter方法 -->
+	    		<param name="root">postInfoList</param>
+	    	</result>
+    	</action>
+    	
+    	<action name="postInfo_ListAPostInfo" class="com.dating.Appaction.PostInfoAction" method="ListAPostInfo">
+	    	<result type="json">
+	    		<!-- 指定将被Struts2序列化的属性，该属性必须在Action中有对应的getter方法 -->
+	    		<param name="root">postInfo</param>
+	    	</result>
+    	</action>
+    	
+    	
+    	
+    </package>
+
+</struts>

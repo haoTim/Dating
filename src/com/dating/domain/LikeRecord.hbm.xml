@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.dating.domain">
+	<!-- 映射Video持久化类 -->
+	<class name="LikeRecord" table="likeRecord">
+		 
+		<id name="like_id" column="like_id">
+			<!-- 定义主键生成器策略 -->
+			<generator class="native"/>
+		</id>
+       
+		<!-- 用于映射普通属性 -->
+		<property name="isliked" />
+		<property name="post_id" />
+		<property name="user_id" />
+		
+		
+		<!-- 映射集合属性，集合元素是其他持久化实体
+			指定连接表的表名-->	
+	</class>
+</hibernate-mapping>
